@@ -1,0 +1,70 @@
+<script> 
+
+    function m_1(a) { 
+    var il = 0; 
+    var less = a[0]; 
+    for (var i = 0; i < a.length; i++) { 
+    if (a[i] < less) { 
+    less = a[i] 
+    il = i 
+    } 
+    } 
+    return il;
+    }
+
+
+
+    function m_2(a) {
+        var min_i = m_1(a);
+        var y = min_i;
+        var x = a[0]; 
+a[0] = a[min_i];
+a[y] = x;
+    return a; 
+    }
+
+ 
+
+   function m_3(a) { 
+    var il_2 = 0; 
+    var less_2 = a[1]; 
+    for (var i = 1; i < a.length; i++) { 
+    if (a[i] < less_2) { 
+    less_2 = a[i] 
+    il_2 = i 
+    } 
+    } 
+    return il_2;
+    }
+
+    function m_4(a) {
+        var min_i_2 = m_3(a);
+        var y_2 = min_i_2;
+        var x_2 = a[1]; 
+a[1] = a[min_i_2];
+a[y_2] = x_2;
+    return a; 
+    }    
+
+
+
+
+
+    function main(a) {
+        m_2(a);
+        m_4(a);
+        return a;
+    }
+
+
+function true_main(a) {
+
+
+
+    return a;
+}
+
+
+
+
+</script>

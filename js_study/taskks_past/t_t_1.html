@@ -1,0 +1,33 @@
+<script> 
+
+    function m_1(a) { 
+    var il = 0; 
+    var less = a[0]; 
+    for (var i = 0; i < a.length; i++) { 
+    if (a[i] < less) { 
+    less = a[i] 
+    il = i 
+    } 
+    } 
+    return il;
+    }
+
+
+
+    function main(a) { 
+        for (var n = 0; n < a.length; n++) {
+
+
+        var min_i = m_1(n);
+        var y = min_i;
+        var x = a[0 + n]; 
+a[0 + n] = a[min_i + n];
+a[y + n] = x;
+
+   
+}
+
+
+    return a; 
+    }
+    </script>

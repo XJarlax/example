@@ -1,0 +1,235 @@
+<html>
+
+<body>
+    <div id="id1">
+        <div>5</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>10</div>
+    </div>
+    <div>
+        ________________
+    </div>
+    <div id="id2">
+        <div>arnold</div>
+        <div>kim</div>
+        <div>u</div>
+        <div>gipopotamelous</div>
+        <div>10</div>
+        <div>the longest string for tests</div>
+    </div>
+    ________________
+    <div id="id3">
+        <div>test_result</div>
+    </div>
+
+
+
+    <script>
+        const div1 = document.getElementById("id1");
+        const div2 = document.getElementById("id2");
+        const div3 = document.getElementById("id3")
+
+
+        function test_charAt(array, string_ind, char_number) {
+            let test_s_1 = div2.children[string_ind].textContent;
+            let t = test_s_1.charAt(char_number);
+            return t;
+        }
+
+        function my_charAt(str, char_number) {
+            let t = str[char_number];
+            return t;
+        }
+
+
+        function test_my_charAt(array, string_ind, char_number) {
+            let test_s_1 = div2.children[string_ind].textContent;
+            let t = my_charAt(test_s_1, char_number);
+            return t;
+
+        }
+
+
+        function test_Str_concat(array, string_ind_1, string_ind_2) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let test_s_2 = div2.children[string_ind_2].textContent;
+            let t = test_s_1.concat(test_s_2)
+            return t;
+
+
+        }
+
+
+        function test_my_Str_concat(array, string_ind_1, string_ind_2) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let test_s_2 = div2.children[string_ind_2].textContent;
+            let t = test_s_1 + test_s_2;
+            return t;
+        }
+
+
+        function test_Str_indexOf(array, string_ind_1, searching_element) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = test_s_1.indexOf(searching_element);
+            return t;
+        }
+
+        function test_my_Str_indexOf(array, string_ind_1, searching_element) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = -1;
+            for (let i = 0; i < test_s_1.length; i++) {
+                if (searching_element === test_s_1[i]) {
+                    t = i;
+                }
+            }
+            return t;
+        }
+
+
+        function test_Str_lastIndOf(array, string_ind_1, searching_element) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = test_s_1.lastIndexOf(searching_element);
+            return t;
+        }
+
+
+        function test_my_Str_lastIndOf(array, string_ind_1, searching_element) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = -1;
+            for (let i = test_s_1.length - 1; i >= 0; i--) {
+                if (searching_element === test_s_1[i]) {
+                    t = i;
+                    break;
+                }
+            }
+            div3.children[0].textContent = t;
+            return t;
+        }
+
+
+
+
+        function testStrSearch(array, string_ind_1, searching_element) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = test_s_1.search(searching_element);
+            div3.children[0].textContent = t;
+        }
+
+
+        function testStrSearch(array, string_ind_1, searching_element) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = test_s_1.search(searching_element);
+            div3.children[0].textContent = t;
+        }
+
+
+
+        function testStrSlicese(array, string_ind_1, beginSlice, endSlice) {
+            let test_s_1 = div2.children[string_ind_1].textContent;
+            let t = test_s_1.slice(beginSlice, endSlice);
+            div3.children[0].textContent = t;
+        }
+
+
+        function mySlice1(string, beginSlice, endSlice) {
+            let mySliceResult = ""
+            for (let i = beginSlice; i < endSlice; i++) {
+                mySliceResult = mySliceResult.concat(string[i]);
+
+            }
+            return mySliceResult
+        }
+
+
+
+        function mySlice2(string, beginSlice, endSlice) {
+            let mySliceResult = ""
+            for (let i = string.length + beginSlice; i < string.length + endSlice; i++) {
+                mySliceResult = mySliceResult.concat(string[i]);
+
+            }
+            return mySliceResult
+        }
+
+
+        function testMyStrSlicese(array, string_ind_1, beginSlice, endSlice) {
+            const test_s_1 = div2.children[string_ind_1].textContent;
+            if (beginSlice & endSlice >= 0) {
+                div3.children[0].textContent = mySlice1(test_s_1, beginSlice, endSlice);
+
+            }
+            if (beginSlice & endSlice < 0) {
+                div3.children[0].textContent = mySlice2(test_s_1, beginSlice, endSlice);
+
+            }
+
+
+            //весь слайс в одну функцию!!!(вместо сл1, 2 итп)
+
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+    <script>
+        /*
+        *@typedef {string} Name
+        */
+        const ex = {};
+        ex['Vasya'] = 10;
+
+
+        
+       
+        /*
+        *@param {Array<Name>}
+         @return {boolean}   
+        */
+        function dolg(names) {
+            let result = false;
+            for (let i = 0; i < names.length; i++) {
+
+                if (ex[names[i]] !== undefined) {
+                    if (ex[names[i]] > 0) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+            return result
+
+        }
+
+        function testDolg1(){
+            const result = dolg(['Vasya', 'Petya', 'Kate']);
+            const correct = result === true;
+            console.log(correct);
+        }
+        function testDolg2(){
+            const result = dolg(['Vitia', 'Petya', 'Kate']);
+            const correct = result === false;
+            console.log(correct); 
+        }
+        function tests(){
+            testDolg1()
+            testDolg2()
+        }
+        /*
+        *по образцу выше - все д.з.
+        */
+
+
+    </script>
+
+</body>
+
+</html>

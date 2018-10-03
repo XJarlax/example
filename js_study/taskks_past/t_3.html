@@ -1,0 +1,37 @@
+<script> 
+ function m_1(a) { 
+    var im = 0; 
+    var more = a[0]; 
+    for (var i = 0; i < a.length; i++) { 
+    if (a[i] > more) { 
+    more = a[i]; 
+    im = i; 
+    }
+    }
+    return im; 
+    }
+
+
+    function m_2(a) { 
+    var il = 0; 
+    var less = a[0]; 
+    for (var i = 0; i < a.length; i++) { 
+    if (a[i] < less) { 
+    less = a[i] 
+    il = i 
+    }; 
+    }; 
+    return il;
+    }
+
+
+
+    function main(a) { 
+        var max_i = m_1(a);
+        var min_i = m_2(a);
+   var x = a[max_i]; 
+a[max_i] = a[min_i]; 
+a[min_i] = x; 
+    return a; 
+    }
+    </script>

@@ -1,0 +1,40 @@
+<script> 
+
+    function m_1(a) { 
+    var il = 0; 
+    var less = a[0]; 
+    for (var i = 0; i < a.length; i++) { 
+    if (a[i] < less) { 
+    less = a[i] 
+    il = i 
+    } 
+    } 
+    return il;
+    }
+
+
+
+    function m_2(a) {
+        var min_i = m_1(a);
+        var y = min_i;
+        var x = a[0]; 
+a[0] = a[min_i];
+a[y] = x;
+    return a; 
+    }
+
+    function main(a) {
+       m_2(a);
+       for (var i = 1; i < a.length; i++) { 
+           
+         if (a[i] < a[i - 1]) { 
+             var yy = a[i - 1];
+             a[i-1] = a[i];
+             a[i] = yy;
+    } 
+    } 
+
+    return a; 
+    }
+
+</script>

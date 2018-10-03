@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <script>
+
+    /**
+     * @enum {number} 
+    */
+    const Gender = {
+        MALE: 0,
+        FEMALE: 1
+    };
+    const CLASSES_TRANSLATIONS = ['Мат.', "Инф.", "Арх.", "Яз.", "Ин.Яз.", "Ист."];
+    /**
+     * @enum {number} 
+     */
+
+    const Classes = {
+        MATH: 0,
+        INFORMATICS: 1,
+        ARCHITECT: 2,
+        ART: 3,
+        LANGUAGE: 4,
+        SECOND_LANGUAGE: 5,
+        HISTORY: 6
+    };
+
+    const str1 = CLASSES_TRANSLATIONS[Classes.INFORMATICS];
+
+
+
+    /** 
+ * @typedef {Object} Student 
+ * @property {number} age 
+ * @property {string} name 
+ * @property {string} family
+ * @property {const} gender
+ * @property {array} classes
+*/
+    //штука сверху = контракт/интерфейс
+
+
+    const student1 = {
+        name: 'Vasa',
+        family: 'Pupkin',
+        age: 21,
+        gender: Gender.MALE,
+        classes: [
+            Classes.MATH,
+            Classes.INFORMATICS,
+            Classes.HISTORY,
+            Classes.SECOND_LANGUAGE
+        ]
+    };
+    const student2 = {
+        name: 'Kseniya',
+        family: 'Ksenomorfova',
+        age: 24,
+        gender: Gender.FEMALE,
+        classes: [
+            Classes.MATH,
+            Classes.INFORMATICS,
+            Classes.ART,
+            Classes.LANGUAGE
+        ]
+    };
+    const student3 = {
+        name: 'Ivan',
+        family: 'Ivanov',
+        age: 22,
+        gender: Gender.MALE,
+        classes: [
+            Classes.MATH,
+            Classes.ARCHITECT,
+            Classes.ART,
+            Classes.HISTORY
+        ]
+    };
+    const student4 = {
+        name: 'Anna',
+        family: 'Ivanova',
+        age: 24,
+        gender: Gender.FEMALE,
+        classes: [
+            Classes.MATH,
+            Classes.INFORMATICS,
+            Classes.ARCHITECT,
+            Classes.LANGUAGE
+        ]
+    };
+    const student5 = {
+        name: 'Kseniya',
+        family: 'Sidorova',
+        age: 64,
+        gender: Gender.FEMALE,
+        classes: [
+            Classes.MATH,
+            Classes.INFORMATICS,
+            Classes.SECOND_LANGUAGE,
+            Classes.HISTORY
+        ]
+    };
+    const student6 = {
+        name: 'Boris',
+        family: 'Arturov',
+        age: 18,
+        gender: Gender.MALE,
+        classes: [
+            Classes.INFORMATICS,
+            Classes.ARCHITECT,
+            Classes.ART,
+            Classes.SECOND_LANGUAGE
+        ]
+    };
+    const student7 = {
+        name: 'Ivan',
+        family: 'Arturov',
+        age: 26,
+        gender: Gender.MALE,
+        classes: [
+            Classes.MATH,
+            Classes.ART,
+            Classes.LANGUAGE,
+            Classes.HISTORY
+        ]
+    };
+
+
+
+    const group = [student1, student2, student3, student4, student5, student6, student7];
+    /** 
+    @param {Array<Student>} group 
+    @return {number} 
+    */
+    function middle_age(group) {
+        let summ_age = 0;
+
+        for (let i = 0; i < group.length; i++) {
+            summ_age = summ_age + group[i].age;
+        }
+        const middle_age_result = summ_age / group.length;
+
+        return middle_age_result
+    }
+    /**
+    *@param {Array<Student>} group
+    * @param {Classes} the_class
+    * @return {boolean} 
+    */
+    function find_same_class_at_all(group, the_class) {
+        let foundAll = true;
+        for (let i = 0; i < group.length; i++) {
+            let index = group[i].classes.indexOf(the_class);
+            if (index === -1) {
+                foundAll = false;
+                break;
+            }
+        }
+        return foundAll
+    }
+    /**
+    *@param {Array<Student>} group
+    *@return {Array<Classes>}
+    */
+    function find_same_classes_at_all(group) {
+        const result = [];
+        for (let i = 0; i < group.length; i++) {
+            const classes = group[i].classes
+            for (let j = 0; j < classes.length; j++) {
+                const found = find_same_class_at_all(group, classes[j]);
+                if (found) {
+                    const foundInResult = result.indexOf(classes[j]) !== -1;
+                    if (!foundInResult) {
+                        result.push(classes[j])
+                    }
+
+
+                }
+
+            }
+
+        }
+        if (result.length === 0) {
+            result.push('Same classes not found')
+        }
+
+        return result
+    }
+
+//сделать вывод с выбором языка;
+//исправить задачу по образцу сверху;
+//все в структуру!
+//изучить регулярное выражение в js
+//
+
+</script>
+
+</body>
+
+
+</html>
