@@ -91,3 +91,5 @@ function main() {
     fillTable_2(array_of_tasks, table_of_tasks_2);
 }
 main();
+
+//create fill_Table_3 using innerHTML instead of using createElement (with google)
